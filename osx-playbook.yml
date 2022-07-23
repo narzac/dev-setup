@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  vars:
+    ssh_key_source_path: "./.ssh/id_rsa_ag"
+    ssh_key_destination_path: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa_ag"
+  pre_tasks:
+    - name: Update & upgrade brew packages
+      homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
+  tasks:
+    - include: tasks/ssh.yml
+    - include: tasks/git-setup.yml
+    - include: tasks/dotfiles.yml
+    - include: tasks/zsh.yml

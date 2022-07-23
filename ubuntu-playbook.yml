@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: Update cache
+      apt:
+        update_cache: true
+  tasks:
+    - name: install zsh
+      apt: name=zsh
