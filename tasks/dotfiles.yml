@@ -1,13 +1,14 @@
 ---
-- name: Cloning dotfiles
-  git:
-    repo: "https://github.com/narzac/.dotfiles.git"
-    dest: "{{ lookup('env', 'HOME') }}/code/personal/dotfiles"
-    recursive: yes
-    update: yes
-    accept_hostkey: true
-    version: main
-  become: false
+## FIXME: uncomment once the local dotfiles and dev-setup repos are pushed to origin.
+# - name: Cloning dotfiles
+#   git:
+#     repo: "https://github.com/narzac/.dotfiles.git" ## TODO: delete old dotfiles repo on github, and rename .dotfiles as dotfiles
+#     dest: "{{ lookup('env', 'HOME') }}/code/personal/dotfiles"
+#     recursive: yes
+#     update: yes
+#     accept_hostkey: true
+#     version: main
+#   become: false
 
 - name: Install dotfiles
   shell: cd $HOME/code/personal/dotfiles && make install
