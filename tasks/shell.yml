@@ -1,0 +1,11 @@
+- name: install bash
+  homebrew:
+    name: bash
+    state: latest
+    update_homebrew: no
+
+- name: install starship
+  homebrew:
+    name: starship
+    state: latest
+    update_homebrew: no
